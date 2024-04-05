@@ -1,0 +1,71 @@
+.background {
+    background: linear-gradient(to left, #29c16b, #0a8eaf);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-container {
+    background-color: rgba(56, 162, 137, 0.975); /* Semi-transparent white background for form */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); /* Adding a slight shadow for depth */
+    max-width: 400px; /* Limiting the width of the form */
+    width: 100%;
+    animation: slide-in 0.5s ease; /* Adding an animation to slide in */
+  }
+  
+  .fild {
+    margin-bottom: 20px;
+  }
+  
+  .fild input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Adding a transition effect for input focus */
+  }
+  
+  .fild input:focus {
+    border-color: #1f811f; /* Changing border color on focus to green */
+  }
+  
+  .fild span {
+    color: rgb(12, 93, 27);
+    font-size: large;
+    font-weight: 600;
+  }
+  
+  .button1 {
+    background-color: #298a60;
+    color: #f0eaea;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Adding a transition effect for button hover */
+  }
+  
+  .button1:hover {
+    background-color: #094e30; /* Darker color on hover */
+  }
+  
+  .errorMessage {
+    color: rgb(236, 100, 100);
+    margin-bottom: 10px;
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 19;
+    }
+  }
+  

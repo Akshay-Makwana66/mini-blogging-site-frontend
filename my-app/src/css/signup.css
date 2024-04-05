@@ -1,0 +1,127 @@
+.signup-container {
+  display: flex;
+  height: 100vh;
+}
+
+.signup-image {
+  width: 50%;
+  background-image: url('../images/account-creating-concept-icon-vector-28809330.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.background-container { 
+  width: 100%;
+  display: flex; 
+  justify-content: center;
+   align-items: center;
+  height: 100vh; 
+}  
+
+.background-color {
+  background: linear-gradient(to left, #7dbac2, #19b8dc);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  background-color: #f2f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 80%; /* Adjust the width of the form as needed */
+  margin: 0 auto; 
+  text-align: left;
+}
+
+
+.input {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+span {
+  color: rgb(199, 12, 37);
+  font-size: 14px;
+}
+
+.errorMessage {
+  color: rgb(191, 27, 30);
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button[type="submit"] {
+  margin-top: 15px;
+}
+
+button[type="submit"],
+NavLink button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+button[type="submit"]:hover,
+NavLink button:hover {
+  background-color: #0056b3;
+}
+
+NavLink button {
+  margin-top: 15px;
+  margin-left: 150px;
+  width: auto;
+}
+
+.login-link {
+  color: rgb(116, 11, 20); /* Or any other color */
+   text-decoration: none; /* Remove underline */
+   font-weight: bold; 
+   text-align:center; 
+}  
