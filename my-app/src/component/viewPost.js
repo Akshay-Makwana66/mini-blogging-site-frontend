@@ -5,15 +5,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import {useParams,NavLink, useNavigate} from "react-router-dom";
 import Cookies from 'js-cookie';
+
 const ViewPost = () => {
     const [getuserdata, setUserdata] = useState([]);
-    console.log(getuserdata);
     let navigate = useNavigate()
 
 const {id} = useParams("")
     // Get the JWT token from your cookies
     const token = Cookies.get('x-api-key');
-    console.log(token);
       const header = {
         'Content-Type': 'application/json',
         // Include the JWT token in the Authorization header
@@ -22,19 +21,16 @@ const {id} = useParams("")
 
 const getdata = async () => {
 
-    const res = await fetch(`http://localhost:4000/blogs/${id}`, {
+    const getdata = await fetch(`http://localhost:4000/blogs/${id}`, {
         method: "GET",
         mode:"cors",
         headers:header
     });
 
-    console.log(res);
-    const data = await res.json();
+    const data = await getdata.json();
 
-    console.log(data,'jhgfd');
-
-    if (res.status === 500 || !data) {
-        console.log("error ");
+    if (getdata.status === 500 || !data) {
+        console.log(getdata.message);
 
     } else {
         setUserdata(data)
@@ -45,26 +41,24 @@ const getdata = async () => {
     useEffect(()=>{
         getdata()
     },[])
+
 const deleteuser = async (id) => {
 
-    const res2 = await fetch(`http://localhost:4000/blogs/${id}`, {
+    const deleteData = await fetch(`http://localhost:4000/blogs/${id}`, {
         method: "DELETE",
         mode:"cors",
         headers: header
     });
 
-    const deletedata = await res2.json();
-    console.log(deletedata);
+    const deleted = await deleteData.json();
 
-    if (res2.status === 422 || !deletedata) {
-        console.log("error");
+    if (deleteData.status === 500 || !deleted) {
+        console.log(deleteData.message);
     } else {
-        // console.log("user deleted");
         navigate("/home");
     }
 
 }
-console.log("postData:", getuserdata.data);
 
   return (
     <div className="container mt-3">

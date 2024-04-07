@@ -87,7 +87,6 @@ const Signup = () => {
                 }),
             })
             const createData = await data.json()
-            // .then((data)=>data.status ? data: new Error(data.msg))
 
             if (createData.status) {
                 console.log("success");

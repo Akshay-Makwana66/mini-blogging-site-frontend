@@ -125,3 +125,10 @@ NavLink button {
    font-weight: bold; 
    text-align:center; 
 }  
+.createErrorMessage{
+  color: rgb(191, 27, 30);
+  text-align: left;
+  margin-top: 1px;
+  font-size: 19px;
+  font-weight: 600;
+}

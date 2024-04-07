@@ -52,17 +52,16 @@ const UpdatePost = () => {
 
     const getdata = async () => {
 
-        const res = await fetch(`http://localhost:4000/blogs/${id}`, {
+        const getdata = await fetch(`http://localhost:4000/blogs/${id}`, {
             method: "GET",
             mode: 'cors',
             headers: header
         });
 
-        const data = await res.json();
-        console.log(data);
+        const data = await getdata.json();
 
-        if (res.status === 500 || !data) {
-            console.log("error ");
+        if (getdata.status === 500 || !data) {
+            console.log(getdata.message);
 
         } else {
             setUserdata(data)
@@ -73,14 +72,13 @@ const UpdatePost = () => {
 useEffect(()=>{
     getdata()
 },[])
-   console.log(formData);
 
     const updateuser = async(e)=>{
         e.preventDefault();
 
         const { title,  body, tags, category, subcategory} = formData;
 
-        const res2 = await fetch(`http://localhost:4000/blogs/${id}`,{
+        const updated = await fetch(`http://localhost:4000/blogs/${id}`,{
             method: "PUT",
             mode: 'cors',
             headers: header,
@@ -89,20 +87,13 @@ useEffect(()=>{
             })
         });
 
-        const data2 = await res2.json();
-        if(data2.status){
-            console.log(data2);
+        const updateData = await updated.json();
+        if(updateData.status){
+            console.log(updateData);
             navigate("/home")
         }else{
-             setGlobalError(data2.message)
+             setGlobalError(updateData.message)
         }
-        // navigate("/home")
-
-        // if(res2.status === 500 || !data2){
-        //     alert("fill the data");
-        // }else{
-        // }
-
     }
 
 return (

@@ -11,7 +11,6 @@ let navigate = useNavigate();
 
   // Get the JWT token from your cookies
   const token = Cookies.get('x-api-key');
-console.log(token);
   const header = {
     'Content-Type': 'application/json',
     // Include the JWT token in the Authorization header
@@ -20,16 +19,15 @@ console.log(token);
 
   const getdata = async () => {
 
-    const res = await fetch("http://localhost:4000/blogs", {
+    const getdata = await fetch("http://localhost:4000/blogs", {
         method: "GET",
         headers: header,
     });
 
-    const data = await res.json();
-    console.log(data);
+    const data = await getdata.json();
 
-    if (res.status === 422 || !data) {
-        console.log("error ");
+    if (getdata.status === 500 || !data) {
+        console.log(getdata.message);
 
     } else {
         setUserdata(data)
@@ -37,30 +35,30 @@ console.log(token);
 
     }
 }
-// console.log(getuserdata.data[0].title)
+
 useEffect(() => {
     getdata();
 }, [])
 
 const deleteUser = async (id) => {
+  const deleteData = await fetch(`http://localhost:4000/blogs/${id}`, {
+      method: "DELETE",
+      mode:"cors",
+      headers: header
+  });
 
-    const res2 = await fetch(`http://localhost:4000/blogs/${id}`, {
-        method: "DELETE",
-        mode:"cors",
-        headers: header
-    });
-    const deletedata = await res2.json();
-    console.log(deletedata);
-navigate("/home")
-    // if (res2.status === 422 || !deletedata) {
-    //     console.log("error");
-    // } else {
-    //     console.log("user deleted");
-    //     // setDLTdata(deletedata)
-    //     getdata();
-    // }
-
+  if (deleteData.ok) {
+      // Filter out the deleted post from the state
+      setUserdata(prevData => ({
+        ...prevData,
+        data: prevData.data.filter(post => post._id !== id)
+    }));
+      navigate("/home");
+  } else {
+      console.log("Failed to delete post");
+  }
 }
+
 
   return (
     <div className="mt-5">
@@ -89,11 +87,11 @@ navigate("/home")
                                         <>
                                             <tr>
                                                 <th scope="row">{id + 1}</th>
-                                                <td>{element.title}</td>
-                                                <td>{element.body}</td>
-                                                <td>{element.tags}</td>
-                                                <td>{element.category}</td>
-                                                 <td>{element.subcategory}</td>
+                                                <td className="data">{element.title}</td>
+                                                <td className="data">{element.body}</td>
+                                                <td className="data">{element.tags}</td>
+                                                <td className="data">{element.category}</td>
+                                                 <td className="data">{element.subcategory}</td>
 
                                                 <td className="d-flex justify-content-between">
                                                 <NavLink to={`/view/${element._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink>

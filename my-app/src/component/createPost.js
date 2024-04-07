@@ -24,7 +24,6 @@ let navigate = useNavigate()
       }
        // Get the JWT token from your cookies
   const token = Cookies.get('x-api-key');
-console.log(token);
   const header = {
     'Content-Type': 'application/json',
     // Include the JWT token in the Authorization header
@@ -36,7 +35,7 @@ console.log(token);
       const addInpData = async(e)=>{
         e.preventDefault();
         const {title,body,tags, category, subcategory} = formData;
-        const res = await fetch("http://localhost:4000/blogs",{
+        const createData = await fetch("http://localhost:4000/blogs",{
             method: 'POST',
             mode: 'cors',
             headers:header,
@@ -45,7 +44,7 @@ console.log(token);
             })
            })
 
-           const data = await res.json();
+           const data = await createData.json();
            if(data.status){
                navigate("/home")
 
@@ -84,8 +83,8 @@ console.log(token);
             <label htmlFor="exampleInputPassword1" className="form-label">isPublished</label>
             <input type="text" name="isPublished" className="form-control" id="exampleInputPassword1"/>
         </div> */}
+        <div className="createErrorMessage">{globalError && <span>{globalError}</span>}</div>
         <div className="d-grid gap-2 mt-5">
-          <div className="errorMessage">{globalError && <span>{globalError}</span>}</div>
         <button type="submit" onClick={addInpData} className="btn btn-primary btn-lg">Submit</button>
         </div>
         </div>
