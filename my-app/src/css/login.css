@@ -57,6 +57,27 @@
     color: rgb(236, 100, 100);
     margin-bottom: 10px;
   }
+  .divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .divider {
+    flex-grow: 1;
+    height: 1px;
+    background-color: black;
+    margin: 0 10px;
+  }
+  
+  .or-text {
+    font-size:16px;
+    color: black;
+  }
+  
+  
+  
+  
   
   @keyframes slide-in {
     from {

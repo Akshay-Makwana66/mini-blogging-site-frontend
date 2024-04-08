@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState,useEffect } from 'react';
+import { useNavigate,Link } from 'react-router-dom';
 import "../css/login.css";
 import Cookies from 'js-cookie'; // Import the js-cookie library
 
@@ -8,6 +8,14 @@ export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [formErrors, setFormErrors] = useState({ email: '', password: '' });
   const [globalError, setGlobalError] = useState('');
+
+
+    useEffect(() => {
+        const token = Cookies.get('x-api-key');
+        if (token) {
+            navigate('/home'); // Redirect to home page if token is present
+        }
+    }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -65,7 +73,7 @@ export default function Login() {
         if (loginData.status) {
           token = loginData.data;
           Cookies.set('x-api-key', token,{ expires: 6 / 24 });
-          console.log(token);
+          
           navigate('/home');
         } else {
           setGlobalError(loginData.message);
@@ -93,6 +101,16 @@ export default function Login() {
         <button className="button1" onClick={postData}>
           Login
         </button>
+        <div className="divider-container">
+  <span className="divider"></span>
+  <span className="or-text">or</span>
+  <span className="divider"></span>
+</div>
+
+
+        <div style={{ textAlign: 'center' }}>
+          <Link to="/" className="login-link">Create your account. <span style={{textDecoration:"underline",fontSize:15}}>click here</span></Link>
+        </div>
       </form>
     </div>
   );

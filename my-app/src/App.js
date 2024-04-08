@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./App.css"
@@ -8,6 +8,7 @@ import Home from './component/home';
 import UpdatePost from './component/updatePost';
 import CreatePost from './component/createPost';
 import SignUp from './component/signUp.js';
+import NotFound from './component/notFound.js';
 function App() {
   return (
     <BrowserRouter>
@@ -19,8 +20,9 @@ function App() {
           <Route exact path='/createPost' element={<CreatePost/>} />
           <Route exact path='/view/:id' element={<ViewPost/>} />
           <Route exact path='/update/:id' element={<UpdatePost/>} />
-        </Routes>
-      </div>
+          <Route path='*' element={<NotFound />} />    
+          </Routes>
+      </div>  
     </BrowserRouter>
   );
 }

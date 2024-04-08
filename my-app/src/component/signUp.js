@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {Link, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import "../css/signup.css";
 const Signup = () => {
     let navigate = useNavigate();
@@ -19,6 +20,13 @@ const Signup = () => {
     });
 
     const [globalError, setGlobalError] = useState("");
+    // Check for token in cookies
+    useEffect(() => {
+      const token = Cookies.get('x-api-key');
+      if (token) {
+          navigate('/home'); // Redirect to home page if token is present
+      }
+    }, []);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
