@@ -25,7 +25,7 @@ const Home = () => {
     };
 
     const getdata = async () => {
-        const getdata = await fetch("http://localhost:4000/blogs", {
+        const getdata = await fetch("https://mini-blogs.onrender.com/blogs", {
             method: "GET",
             headers: header,
         });
@@ -44,7 +44,7 @@ const Home = () => {
 
     const fetchUserName = async () => {
       try {
-          const userNameResponse = await fetch("http://localhost:4000/getUserName", {
+          const userNameResponse = await fetch("https://mini-blogs.onrender.com/getUserName", {
               method: "GET",
               headers: header,
           });

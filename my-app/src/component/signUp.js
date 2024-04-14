@@ -82,7 +82,7 @@ const Signup = () => {
             console.log('Form submitted successfully');
 
             // Add your fetch request here
-            const data = await fetch('http://localhost:4000/authors', {
+            const data = await fetch('https://mini-blogs.onrender.com/authors', {
                 method: 'POST',
                 mode: 'cors',
                 headers: {

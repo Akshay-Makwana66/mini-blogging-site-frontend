@@ -27,7 +27,7 @@ const MyBlogs = () => {
     };
 
     const getdata = async () => {
-        const getdata = await fetch("http://localhost:4000/getMyBlogs", {
+        const getdata = await fetch("https://mini-blogs.onrender.com/getMyBlogs", {
             method: "GET",
             headers: header,
         });
@@ -47,7 +47,7 @@ const MyBlogs = () => {
     // }, [])
 
     const deleteUser = async (id) => {
-        const deleteData = await fetch(`http://localhost:4000/blogs/${id}`, {
+        const deleteData = await fetch(`https://mini-blogs.onrender.com/blogs/${id}`, {
             method: "DELETE",
             mode: "cors",
             headers: header

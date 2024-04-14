@@ -49,7 +49,7 @@ const UpdatePost = () => {
 
         const { title,  body, tags, category, subcategory} = formData;
 
-        const updated = await fetch(`http://localhost:4000/blogs/${id}`,{
+        const updated = await fetch(`https://mini-blogs.onrender.com/blogs/${id}`,{
             method: "PUT",
             mode: 'cors',
             headers: header,

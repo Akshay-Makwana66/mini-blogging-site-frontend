@@ -35,7 +35,7 @@ let navigate = useNavigate()
       const addInpData = async(e)=>{
         e.preventDefault();
         const {title,body,tags, category, subcategory} = formData;
-        const createData = await fetch("http://localhost:4000/blogs",{
+        const createData = await fetch("https://mini-blogs.onrender.com/blogs",{
             method: 'POST',
             mode: 'cors',
             headers:header,

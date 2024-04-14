@@ -54,7 +54,7 @@ export default function Login() {
         // Retrieve token from cookies if needed
         let token = Cookies.get('token') || '';
 
-        const data = await fetch('http://localhost:4000/login', {
+        const data = await fetch('https://mini-blogs.onrender.com/login', {
           method: 'POST',
           mode: 'cors',
           headers: {

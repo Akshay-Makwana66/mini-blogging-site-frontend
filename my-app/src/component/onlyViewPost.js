@@ -29,7 +29,7 @@ const PostView = () => {
 
 const getdata = async () => {
 
-    const getdata = await fetch(`http://localhost:4000/blogs/${id}`, {
+    const getdata = await fetch(`https://mini-blogs.onrender.com/blogs/${id}`, {
         method: "GET",
         mode:"cors",
         headers:header
@@ -51,7 +51,7 @@ const getdata = async () => {
 
     const fetchPostName = async () => {
         try {
-            const postNameResponse = await fetch(`http://localhost:4000/getPosterName/${id}`, {
+            const postNameResponse = await fetch(`https://mini-blogs.onrender.com/getPosterName/${id}`, {
                 method: "GET",
                 headers: header,
             });

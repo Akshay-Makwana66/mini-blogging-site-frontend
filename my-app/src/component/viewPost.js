@@ -21,7 +21,7 @@ const {id} = useParams("")
 
 const getdata = async () => {
 
-    const getdata = await fetch(`http://localhost:4000/blogs/${id}`, {
+    const getdata = await fetch(`https://mini-blogs.onrender.com/blogs/${id}`, {
         method: "GET",
         mode:"cors",
         headers:header
@@ -44,7 +44,7 @@ const getdata = async () => {
 
 const deleteuser = async (id) => {
 
-    const deleteData = await fetch(`http://localhost:4000/blogs/${id}`, {
+    const deleteData = await fetch(`https://mini-blogs.onrender.com/blogs/${id}`, {
         method: "DELETE",
         mode:"cors",
         headers: header
