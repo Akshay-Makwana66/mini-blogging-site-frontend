@@ -4,15 +4,12 @@ import '../css/signup.css';
 import Cookies from 'js-cookie';
 const UpdatePost = () => {
     
-    const [getuserdata, setUserdata] = useState([]);
-    console.log(getuserdata);
     const [formData, setFormData] = useState({
         title: "",
         body: "",
         tags:"",
         category: "",
         subcategory: "",
-        // ispublished:null
     });
     
     const [globalError,setGlobalError]= useState("")
@@ -20,9 +17,7 @@ const UpdatePost = () => {
     const location = useLocation();
     const postData = location.state && location.state.postData;
     useEffect(() => {
-        console.log("postData:", postData);
         if (postData) {
-            console.log("Setting formData:", postData);
             setFormData(postData);
         }
     }, [postData]);
@@ -49,30 +44,6 @@ const UpdatePost = () => {
         'x-api-key': `${token}`,
       };
 
-
-    const getdata = async () => {
-
-        const getdata = await fetch(`http://localhost:4000/blogs/${id}`, {
-            method: "GET",
-            mode: 'cors',
-            headers: header
-        });
-
-        const data = await getdata.json();
-
-        if (getdata.status === 500 || !data) {
-            console.log(getdata.message);
-
-        } else {
-            setUserdata(data)
-            console.log("get data");
-
-        }
-    }
-useEffect(()=>{
-    getdata()
-},[])
-
     const updateuser = async(e)=>{
         e.preventDefault();
 
@@ -89,7 +60,6 @@ useEffect(()=>{
 
         const updateData = await updated.json();
         if(updateData.status){
-            console.log(updateData);
             navigate("/home")
         }else{
              setGlobalError(updateData.message)
@@ -122,10 +92,6 @@ return (
         <label htmlFor="exampleInputPassword1" className="form-label">Subcategory</label>
         <input type="text" value={formData.subcategory} onChange={setData} name="subcategory" className="form-control" id="exampleInputPassword1"/>
     </div>
-    {/* <div className="mb-3 col-lg-6 col-md-6 col-12">
-        <label htmlFor="exampleInputPassword1" className="form-label">isPublished</label>
-        <input type="text" name="isPublished" className="form-control" id="exampleInputPassword1"/>
-    </div> */}
     <div className="d-grid gap-2 mt-5">
     <div className="errorMessage">{globalError && <span>{globalError}</span>}</div>
     <button type="submit" onClick={updateuser} className="btn btn-primary btn-lg">Submit</button>

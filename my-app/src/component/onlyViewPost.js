@@ -3,7 +3,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import {useParams,useNavigate} from "react-router-dom";
 import Cookies from 'js-cookie';
-import { blue } from '@mui/material/colors';
 
 const PostView = () => {
     const [getuserdata, setUserdata] = useState([]);    
@@ -47,9 +46,7 @@ const getdata = async () => {
         }
     }
     
-    // useEffect(()=>{
-    //     getdata()
-    // },[])
+  
 
 
     const fetchPostName = async () => {

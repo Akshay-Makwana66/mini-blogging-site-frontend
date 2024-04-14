@@ -40,9 +40,7 @@ const Home = () => {
         }
     }
 
-    // useEffect(() => {
-    //     getdata();
-    // }, [])
+    
 
     const fetchUserName = async () => {
       try {
@@ -51,7 +49,7 @@ const Home = () => {
               headers: header,
           });
           const userNameData = await userNameResponse.json();
-          if (userNameResponse.ok) {
+          if (userNameResponse.status) {
               setUserName(userNameData.name); // Assuming the user's name is returned from the backend
           } else {
               console.error("Failed to fetch user name");
@@ -76,7 +74,7 @@ const Home = () => {
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="add_btn mt-2">
                         <NavLink to="/createPost">
-                            <button className="btn btn-primary">Add Post</button>
+                            <button className="btn btn-primary">Create Post</button>
                         </NavLink>
                     </div>
                     <div className="add_btn mt-2">

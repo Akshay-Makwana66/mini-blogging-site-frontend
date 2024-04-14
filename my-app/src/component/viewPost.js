@@ -62,7 +62,7 @@ const deleteuser = async (id) => {
 
   return (
     <div className="container mt-3">
-            <h1 style={{ fontWeight: 400 }}>Welcome</h1>
+            <h1 style={{ fontWeight: 400 }}>Your Post</h1>
             <Card sx={{ maxWidth: 600 }}>
                 <CardContent>
 
@@ -72,7 +72,6 @@ const deleteuser = async (id) => {
                     </div>
                     <div className="row">
                         <div className="left_view col-lg-6 col-md-6 col-12">
-                            {/* <img src="/profile.png" style={{ width: 50 }} alt="profile" /> */}
                             <h3 className="mt-3">Title: <span >{getuserdata.data?.title}</span></h3>
                             <h3 className="mt-3">Body: <span >{getuserdata.data?.body}</span></h3>
                             <p className="mt-3">Tags: <span>{getuserdata.data?.tags}</span></p>
@@ -80,10 +79,6 @@ const deleteuser = async (id) => {
                             <p className="mt-3">Subcategory: <span>{getuserdata.data?.subcategory} </span></p>
 
                         </div>
-                        {/* <div className="right_view  col-lg-6 col-md-6 col-12">
-
-                            <p className="mt-5">Subcategory: <span>{getuserdata.data.subcategory} </span></p>
-                        </div> */}
                     </div>
 
                 </CardContent>

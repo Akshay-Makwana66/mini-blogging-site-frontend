@@ -30,9 +30,11 @@ const Signup = () => {
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
+        console.log("Previous data:", formData); // Log previous data
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
+            
         }));
         validateForm();
     };
@@ -62,9 +64,9 @@ const Signup = () => {
         if (!formData.password) {
             isValid = false;
             errors.password = '*Password is required';
-        } else if (formData.password.length < 8) {
+        } else if (!/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,20}$/.test(formData.password)) {
             isValid = false;
-            errors.password = '*Password must be at least 8 characters long';
+            errors.password = '*Please enter min 8 letter password, with at least a symbol, upper and lower case letters and a number';
         }
 
         setFormErrors(errors);
@@ -94,6 +96,7 @@ const Signup = () => {
                     password: formData.password,
                 }),
             })
+            
             const createData = await data.json()
 
             if (createData.status) {

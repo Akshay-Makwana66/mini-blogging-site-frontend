@@ -68,12 +68,9 @@ export default function Login() {
         });
 
         const loginData = await data.json();
-        console.log(loginData);
-
         if (loginData.status) {
-          token = loginData.data;
-          Cookies.set('x-api-key', token,{ expires: 6 / 24 });
-          
+          token = loginData.data;  //we get token in this line
+          Cookies.set('x-api-key', token,{ expires: 6 / 24 });  // 6 hour expiration time.
           navigate('/home');
         } else {
           setGlobalError(loginData.message);
@@ -102,12 +99,10 @@ export default function Login() {
           Login
         </button>
         <div className="divider-container">
-  <span className="divider"></span>
-  <span className="or-text">or</span>
-  <span className="divider"></span>
+        <span className="divider"></span>
+        <span className="or-text">or</span>
+        <span className="divider"></span>
 </div>
-
-
         <div style={{ textAlign: 'center' }}>
           <Link to="/" className="login-link">Create your account. <span style={{textDecoration:"underline",fontSize:15}}>click here</span></Link>
         </div>

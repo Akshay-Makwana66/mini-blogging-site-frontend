@@ -42,9 +42,9 @@ const MyBlogs = () => {
         }
     }
 
-    useEffect(() => {
-        getdata();
-    }, [])
+    // useEffect(() => {
+    //     getdata();
+    // }, [])
 
     const deleteUser = async (id) => {
         const deleteData = await fetch(`http://localhost:4000/blogs/${id}`, {

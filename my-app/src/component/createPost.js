@@ -47,7 +47,6 @@ let navigate = useNavigate()
            const data = await createData.json();
            if(data.status){
                navigate("/home")
-
            }else{
                 setGlobalError(data.message)
            }
