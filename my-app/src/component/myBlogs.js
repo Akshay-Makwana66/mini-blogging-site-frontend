@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 const MyBlogs = () => {
     let navigate = useNavigate();
     const [getuserdata, setUserdata] = useState([]);
-
+    const [error,setError] = useState("")
      // Get the JWT token from your cookies
      const token = Cookies.get('x-api-key');
 
@@ -34,8 +34,10 @@ const MyBlogs = () => {
 
         const data = await getdata.json();
 
-        if (getdata.status === 500 || !data) {
-            console.log(getdata.message);
+        if ( getdata.status===404 || !data) {
+           
+            setError(data.message);
+           
         } else {
             setUserdata(data);
             console.log("get data");
@@ -128,6 +130,7 @@ const MyBlogs = () => {
                         })}
                     </tbody>
                 </table>
+                {error && <span style={{fontSize:18,marginLeft:500}}>{error}</span>}
             </div>
         </div>
     );
